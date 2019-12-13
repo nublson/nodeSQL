@@ -5,7 +5,9 @@ module.exports = {
     async index(req, res) {
         const { user_id } = req.params;
 
+        // Verifica se o user existe
         const user = await User.findByPk(user_id, {
+            // se existe, retore os seus dados incluindo os addresses associados
             include: { association: "addresses" }
         });
 
