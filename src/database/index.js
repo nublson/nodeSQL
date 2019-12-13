@@ -11,5 +11,6 @@ Address.init(connection);
 
 // Chamando o método de associação
 User.associate(connection.models);
+Address.associate(connection.models);
 
 module.exports = connection;
