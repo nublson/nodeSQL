@@ -12,6 +12,14 @@ class User extends Model {
             { sequelize }
         );
     }
+
+    static associate(models) {
+        this.hasMany(models.Address, {
+            // No caso do hasMany, o foreignKey faz referência à coluna armazenada dentro do Address
+            foreignKey: "user_id",
+            as: "addresses"
+        });
+    }
 }
 
 module.exports = User;
